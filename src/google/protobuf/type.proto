@@ -37,7 +37,7 @@ import "google/protobuf/source_context.proto";
 
 option csharp_namespace = "Google.Protobuf.WellKnownTypes";
 option cc_enable_arenas = true;
-option java_package = "com.google.protobuf";
+option java_package = "com.github.os72.protobuf360";
 option java_outer_classname = "TypeProto";
 option java_multiple_files = true;
 option objc_class_prefix = "GPB";

@@ -38,7 +38,7 @@
 syntax = "proto3";
 
 package protobuf_test_messages.proto3;
-option java_package = "com.google.protobuf_test_messages.proto3";
+option java_package = "com.github.os72.protobuf360_test_messages.proto3";
 option objc_class_prefix = "Proto3";
 
 // This is the default, but we specify it here explicitly.

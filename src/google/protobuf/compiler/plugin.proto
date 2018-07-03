@@ -46,7 +46,7 @@
 
 syntax = "proto2";
 package google.protobuf.compiler;
-option java_package = "com.google.protobuf.compiler";
+option java_package = "com.github.os72.protobuf360.compiler";
 option java_outer_classname = "PluginProtos";
 
 option go_package = "github.com/golang/protobuf/protoc-gen-go/plugin;plugin_go";

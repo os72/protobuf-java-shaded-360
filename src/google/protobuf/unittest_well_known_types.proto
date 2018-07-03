@@ -4,7 +4,7 @@ package protobuf_unittest;
 
 option csharp_namespace = "Google.Protobuf.TestProtos";
 option java_multiple_files = true;
-option java_package = "com.google.protobuf.test";
+option java_package = "com.github.os72.protobuf360.test";
 
 import "google/protobuf/any.proto";
 import "google/protobuf/api.proto";
