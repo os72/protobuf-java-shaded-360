@@ -4,19 +4,19 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.google</groupId>
-    <artifactId>google</artifactId>
-    <version>1</version>
+	<groupId>org.sonatype.oss</groupId>
+	<artifactId>oss-parent</artifactId>
+	<version>9</version>
   </parent>
 
-  <groupId>com.google.protobuf</groupId>
-  <artifactId>protobuf-parent</artifactId>
-  <version>3.6.0</version>
+  <groupId>com.github.os72</groupId>
+  <artifactId>protobuf-parent-shaded-360</artifactId>
+  <version>0.9</version>
   <packaging>pom</packaging>
 
-  <name>Protocol Buffers [Parent]</name>
+  <name>Protocol Buffers [Parent] - shaded version 3.6.0</name>
   <inceptionYear>2008</inceptionYear>
-  <url>https://developers.google.com/protocol-buffers/</url>
+  <url>https://github.com/os72/protobuf-java-shaded-360</url>
   <description>
     Protocol Buffers are a way of encoding structured data in an efficient yet
     extensible format.
@@ -42,22 +42,17 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  <developers>
+	<developer>
+	  <id>os72</id>
+	  <name>Oliver Suciu</name>
+	</developer>
+  </developers>
 
   <scm>
-    <url>https://github.com/google/protobuf</url>
-    <connection>scm:git:https://github.com/google/protobuf.git</connection>
+    <url>https://github.com/os72/protobuf-java-shaded-351</url>
+	<connection>scm:git:git@github.com:os72/protobuf-java-shaded-351.git</connection>
   </scm>
-
-  <distributionManagement>
-    <snapshotRepository>
-      <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
 
   <dependencyManagement>
     <dependencies>

@@ -19,4 +19,7 @@
         <arg value="${protobuf.source.dir}/google/protobuf/wrappers.proto"/>
         <arg value="${protobuf.source.dir}/google/protobuf/compiler/plugin.proto"/>
     </exec>
+	<replace token="com.google.protobuf" value="com.github.os72.protobuf360" dir="target/generated-sources">
+	  <include name="**/*.java" />
+	</replace>
 </project>

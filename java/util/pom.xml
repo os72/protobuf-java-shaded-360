@@ -4,15 +4,15 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.google.protobuf</groupId>
-    <artifactId>protobuf-parent</artifactId>
-    <version>3.6.0</version>
+    <groupId>com.github.os72</groupId>
+    <artifactId>protobuf-parent-shaded-360</artifactId>
+    <version>0.9</version>
   </parent>
 
-  <artifactId>protobuf-java-util</artifactId>
-  <packaging>bundle</packaging>
+  <artifactId>protobuf-java-util-shaded-360</artifactId>
+  <packaging>jar</packaging>
 
-  <name>Protocol Buffers [Util]</name>
+  <name>Protocol Buffers [Util] - shaded version 3.6.0</name>
   <description>Utilities for Protocol Buffers</description>
 
   <dependencies>
@@ -24,7 +24,7 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>protobuf-java</artifactId>
+      <artifactId>protobuf-java-shaded-360</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
@@ -76,8 +76,11 @@
                   <arg value="--java_out=${generated.testsources.dir}" />
                   <arg value="--proto_path=${protobuf.source.dir}" />
                   <arg value="--proto_path=src/test/proto" />
-                  <arg value="src/test/proto/com/google/protobuf/util/json_test.proto" />
+                  <arg value="src/test/proto/com/github/os72/protobuf360/util/json_test.proto" />
                 </exec>
+				<replace token="com.google.protobuf" value="com.github.os72.protobuf360" dir="target/generated-test-sources">
+				  <include name="**/*.java" />
+				</replace>
               </target>
             </configuration>
             <goals>
@@ -130,6 +133,42 @@
           </descriptorRefs>
         </configuration>
       </plugin>
+	  
+		<plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-jar-plugin</artifactId>
+		  <configuration>
+			<archive>
+			  <manifestEntries>
+				<Build-Id>${project.name}-${project.version}-${maven.build.timestamp}</Build-Id>
+			  </manifestEntries>
+			</archive>
+		  </configuration>
+		</plugin>
+		<plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-source-plugin</artifactId>
+		  <executions>
+			<execution>
+			  <id>attach-sources</id>
+				<goals>
+				 <goal>jar</goal>
+				</goals>
+			</execution>
+		  </executions>
+		</plugin>
+		<plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-javadoc-plugin</artifactId>
+		  <executions>
+			<execution>
+			  <id>attach-javadoc</id>
+				<goals>
+				 <goal>jar</goal>
+				</goals>
+			</execution>
+		  </executions>
+		</plugin>
     </plugins>
   </build>
 </project>

@@ -4,15 +4,15 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.google.protobuf</groupId>
-    <artifactId>protobuf-parent</artifactId>
-    <version>3.6.0</version>
+    <groupId>com.github.os72</groupId>
+    <artifactId>protobuf-parent-shaded-360</artifactId>
+    <version>0.9</version>
   </parent>
 
-  <artifactId>protobuf-java</artifactId>
-  <packaging>bundle</packaging>
+  <artifactId>protobuf-java-shaded-360</artifactId>
+  <packaging>jar</packaging>
 
-  <name>Protocol Buffers [Core]</name>
+  <name>Protocol Buffers [Core] - shaded version 3.6.0</name>
   <description>
     Core Protocol Buffers library. Protocol Buffers are a way of encoding structured data in an
     efficient yet extensible format.
@@ -144,6 +144,42 @@
           </instructions>
         </configuration>
       </plugin>
+	  
+		<plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-jar-plugin</artifactId>
+		  <configuration>
+			<archive>
+			  <manifestEntries>
+				<Build-Id>${project.name}-${project.version}-${maven.build.timestamp}</Build-Id>
+			  </manifestEntries>
+			</archive>
+		  </configuration>
+		</plugin>
+		<plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-source-plugin</artifactId>
+		  <executions>
+			<execution>
+			  <id>attach-sources</id>
+				<goals>
+				 <goal>jar</goal>
+				</goals>
+			</execution>
+		  </executions>
+		</plugin>
+		<plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-javadoc-plugin</artifactId>
+		  <executions>
+			<execution>
+			  <id>attach-javadoc</id>
+				<goals>
+				 <goal>jar</goal>
+				</goals>
+			</execution>
+		  </executions>
+		</plugin>
     </plugins>
   </build>
 
