@@ -1,6 +1,8 @@
 <project name="generate-test-sources">
     <mkdir dir="${generated.testsources.dir}"/>
-    <exec executable="${protoc}">
+    <exec executable="java">
+        <arg value="-jar" />
+        <arg value="${maven.dependency.com.github.os72.protoc-jar.jar.path}" />
         <arg value="--java_out=${generated.testsources.dir}"/>
         <arg value="--proto_path=${protobuf.source.dir}"/>
         <arg value="--proto_path=${test.proto.dir}"/>

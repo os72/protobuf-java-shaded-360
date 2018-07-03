@@ -1,7 +1,9 @@
 <project name="generate-sources">
     <echo message="Running protoc ..."/>
     <mkdir dir="${generated.sources.dir}"/>
-    <exec executable="${protoc}">
+    <exec executable="java">
+        <arg value="-jar" />
+        <arg value="${maven.dependency.com.github.os72.protoc-jar.jar.path}" />
         <arg value="--java_out=${generated.sources.dir}"/>
         <arg value="--proto_path=${protobuf.source.dir}"/>
         <arg value="${protobuf.source.dir}/google/protobuf/any.proto"/>

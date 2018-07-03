@@ -17,6 +17,12 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.github.os72</groupId>
+      <artifactId>protoc-jar</artifactId>
+      <version>3.6.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>protobuf-java</artifactId>
       <version>${project.version}</version>
@@ -64,7 +70,9 @@
                 <ant antfile="../core/generate-test-sources-build.xml"/>
 
                 <!-- Generate additional test protos for this module -->
-                <exec executable="${protoc}">
+                <exec executable="java">
+                  <arg value="-jar" />
+                  <arg value="${maven.dependency.com.github.os72.protoc-jar.jar.path}" />
                   <arg value="--java_out=${generated.testsources.dir}" />
                   <arg value="--proto_path=${protobuf.source.dir}" />
                   <arg value="--proto_path=src/test/proto" />
