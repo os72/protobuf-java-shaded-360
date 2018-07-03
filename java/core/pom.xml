@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.github.os72</groupId>
     <artifactId>protobuf-parent-shaded-360</artifactId>
-    <version>0.9-SNAPSHOT</version>
+    <version>0.9</version>
   </parent>
 
   <artifactId>protobuf-java-shaded-360</artifactId>
